@@ -1,0 +1,63 @@
+<!DOCTYPE html>
+<html lang="en-US">
+
+<head>
+    <meta charset="utf-8">
+    <meta http-equiv="Content-Type" content="text/html; charset=UTF-8" />
+
+    <!-- Styles  -->
+    <link rel="stylesheet" href="./tmp/figma-plugin-ds.css"><!-- Figma Plugin DS Styles -->
+    <link rel="stylesheet" href="./tmp/styles.css"> <!-- Your Styles -->
+</head>
+
+<body>
+    <section class="m-xxsmall">
+
+        <label class="label">Cubic Bezier Values</label>
+
+        <div class="input">
+            <label for="bezier-input" class="label">P1.x, P1.y, P2.x, P2.y</label>
+            <input class="input__field" id="bezier-input" type="text" value="0, 0, 0.58, 1"
+                placeholder="e.g., 0.42, 0, 0.58, 1">
+        </div>
+
+        <div class="p-xxsmall"><button class="button button--primary" id="generate">
+                Generate
+            </button></div>
+        </div>
+    </section>
+    <script>
+        document.getElementById('generate').onclick = () => {
+            const inputEl = document.getElementById('bezier-input');
+            const inputString = inputEl.value;
+
+            // 1. Split the string by commas and trim whitespace from each part.
+            const stringValues = inputString.split(',').map(v => v.trim());
+
+            // 2. Validate: Check if we have exactly 4 values.
+            if (stringValues.length !== 4) {
+                alert('Please enter exactly 4 comma-separated values.');
+                return; // Stop if validation fails
+            }
+
+            // 3. Convert all parts to numbers.
+            const numericValues = stringValues.map(v => parseFloat(v));
+
+            // 4. Validate: Check if any part failed to convert to a number.
+            if (numericValues.some(isNaN)) {
+                alert('Please ensure all values are valid numbers.');
+                return; // Stop if validation fails
+            }
+
+            // 5. If all validations pass, send the array of numbers to the plugin logic.
+            parent.postMessage({
+                pluginMessage: {
+                    type: 'generate-curve',
+                    values: numericValues
+                }
+            }, '*');
+        };
+    </script>
+</body>
+
+</html>

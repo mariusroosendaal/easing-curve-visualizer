@@ -1,0 +1,12 @@
+{
+  "name": "Easing Curve Visualizer",
+  "id": "1545751135317915826",
+  "api": "1.0.0",
+  "main": "code.js",
+  "ui": "index.html",
+  "documentAccess": "dynamic-page",
+  "networkAccess": { "allowedDomains": ["none"] },
+  "editorType": [
+    "figma" 
+  ]
+}
