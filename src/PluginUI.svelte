@@ -1,5 +1,6 @@
 <script>
-  import { Button, Input, Label, Text } from "figma-ui3-kit-svelte";
+  import { Button, Input, Text } from "figma-ui3-kit-svelte";
+  import { PluginLayout, FieldGroup, Footer, sendToPlugin } from "figma-plugin-utils";
 
   let bezierInput = "0, 0, 0.58, 1";
   let error = "";
@@ -22,23 +23,13 @@
       return;
     }
 
-    parent.postMessage(
-      {
-        pluginMessage: {
-          type: "generate-curve",
-          values: numericValues,
-        },
-      },
-      "*",
-    );
+    sendToPlugin("generate-curve", { values: numericValues });
   }
 </script>
 
-<div class="wrapper">
-  <div class="content">
-    <Label>Cubic Bezier Values</Label>
-
-    <div class="field">
+<div class="plugin-container">
+  <PluginLayout>
+    <FieldGroup label="Cubic Bezier Values">
       <Text variant="body-small" color="secondary">P1.x, P1.y, P2.x, P2.y</Text>
       <Input
         bind:value={bezierInput}
@@ -48,26 +39,18 @@
       {#if error}
         <Text variant="body-small" color="danger">{error}</Text>
       {/if}
-    </div>
+    </FieldGroup>
+  </PluginLayout>
 
-    <Button variant="primary" on:click={handleGenerate}>Generate</Button>
-  </div>
+  <Footer variant="full">
+    <Button variant="primary" on:click={handleGenerate} fullWidth>Generate</Button>
+  </Footer>
 </div>
 
 <style>
-  .wrapper {
-    padding: var(--size-xxsmall);
-  }
-
-  .content {
+  .plugin-container {
+    height: 100%;
     display: flex;
     flex-direction: column;
-    gap: var(--size-xsmall);
-  }
-
-  .field {
-    display: flex;
-    flex-direction: column;
-    gap: var(--size-xxxsmall);
   }
 </style>
