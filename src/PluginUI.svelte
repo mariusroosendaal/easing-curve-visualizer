@@ -49,7 +49,7 @@
 
   <Footer variant="full">
     <Button variant="primary" on:click={handleGenerate} fullWidth
-      >Generate</Button
+      >Create curve</Button
     >
   </Footer>
 </div>
