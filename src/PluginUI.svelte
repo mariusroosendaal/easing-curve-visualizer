@@ -29,7 +29,7 @@
 
 <div class="plugin-container">
   <PluginLayout>
-    <FieldGroup label="Cubic Bezier Values">
+    <FieldGroup label="Cubic bezier values">
       <Text variant="body-small" color="secondary">P1.x, P1.y, P2.x, P2.y</Text>
       <Input
         bind:value={bezierInput}
