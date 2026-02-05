@@ -1,6 +1,11 @@
 <script>
   import { Button, Input, Text } from "figma-ui3-kit-svelte";
-  import { PluginLayout, FieldGroup, Footer, sendToPlugin } from "figma-plugin-utils";
+  import {
+    PluginLayout,
+    FieldGroup,
+    Footer,
+    sendToPlugin,
+  } from "figma-plugin-utils";
 
   let bezierInput = "0, 0, 0.58, 1";
   let error = "";
@@ -43,7 +48,9 @@
   </PluginLayout>
 
   <Footer variant="full">
-    <Button variant="primary" on:click={handleGenerate} fullWidth>Generate</Button>
+    <Button variant="primary" on:click={handleGenerate} fullWidth
+      >Generate</Button
+    >
   </Footer>
 </div>
 
