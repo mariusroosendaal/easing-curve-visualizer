@@ -5,7 +5,7 @@
     FieldGroup,
     Footer,
     sendToPlugin,
-  } from "figma-plugin-utils";
+  } from "figma-plugin-utilities";
 
   let bezierInput = "0, 0, 0.58, 1";
   let error = "";
