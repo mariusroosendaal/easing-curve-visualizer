@@ -34,16 +34,16 @@
 
 <div class="plugin-container">
   <PluginLayout>
-    <FieldGroup label="Cubic bezier values">
+    <FieldGroup label="Cubic bezier values" labelFor="bezier-input">
       <Text variant="body-small" color="secondary">P1.x, P1.y, P2.x, P2.y</Text>
       <Input
         bind:value={bezierInput}
         placeholder="e.g., 0.42, 0, 0.58, 1"
+        id="bezier-input"
+        invalid={!!error}
+        errorMessage={error}
         on:keydown={(e) => e.key === "Enter" && handleGenerate()}
       />
-      {#if error}
-        <Text variant="body-small" color="danger">{error}</Text>
-      {/if}
     </FieldGroup>
   </PluginLayout>
 
