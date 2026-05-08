@@ -1,7 +1,7 @@
 {
   "name": "easing-curve-visualizer",
   "version": "1.0.0",
-  "description": "A modern Figma plugin boilerplate built with Svelte and a UI3 Kit",
+  "description": "Visualize and generate cubic bezier easing curves as Figma frames",
   "type": "module",
   "author": "Marius Roosendaal",
   "license": "MIT",
@@ -9,10 +9,9 @@
     "figma",
     "figma-plugin",
     "svelte",
-    "boilerplate",
-    "typescript",
-    "vite",
-    "ui3-kit"
+    "easing",
+    "animation",
+    "bezier"
   ],
   "engines": {
     "node": ">=18.0.0"
