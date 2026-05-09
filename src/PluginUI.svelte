@@ -62,7 +62,7 @@
 
   <Footer variant="full">
     <Tooltip
-      label={isDisabled ? (error || "Enter cubic bezier values to continue") : ""}
+      label={isDisabled ? error || "Enter cubic bezier values to continue" : ""}
       disabled={!isDisabled}
     >
       <Button
