@@ -1,5 +1,5 @@
 <script>
-  import { Button, Input, Text } from "figma-ui3-kit-svelte";
+  import { Button, Input, Text, Tooltip } from "figma-ui3-kit-svelte";
   import {
     PluginLayout,
     FieldGroup,
@@ -61,12 +61,17 @@
   </PluginLayout>
 
   <Footer variant="full">
-    <Button
-      variant="primary"
-      on:click={handleGenerate}
-      fullWidth
-      disabled={isDisabled}>Create curve</Button
+    <Tooltip
+      label={isDisabled ? (error || "Enter cubic bezier values to continue") : ""}
+      disabled={!isDisabled}
     >
+      <Button
+        variant="primary"
+        on:click={handleGenerate}
+        fullWidth
+        ariaDisabled={isDisabled}>Create curve</Button
+      >
+    </Tooltip>
   </Footer>
 </div>
 
