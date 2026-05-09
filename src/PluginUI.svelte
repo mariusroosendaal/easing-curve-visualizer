@@ -10,24 +10,37 @@
   let bezierInput = "0, 0, 0.58, 1";
   let error = "";
 
-  function handleGenerate() {
+  $: isDisabled = bezierInput.trim() === "" || !!error;
+
+  $: {
+    // Validate reactively so the button state stays in sync as the user types.
     error = "";
-
-    // Parse the input
     const stringValues = bezierInput.split(",").map((v) => v.trim());
-
-    if (stringValues.length !== 4) {
-      error = "Please enter exactly 4 comma-separated values.";
-      return;
+    if (bezierInput.trim() !== "") {
+      if (stringValues.length !== 4) {
+        error = "Please enter exactly 4 comma-separated values.";
+      } else {
+        const numericValues = stringValues.map((v) => parseFloat(v));
+        if (numericValues.some(isNaN)) {
+          error = "Please ensure all values are valid numbers.";
+        } else if (
+          numericValues[0] < 0 ||
+          numericValues[0] > 1 ||
+          numericValues[2] < 0 ||
+          numericValues[2] > 1
+        ) {
+          error = "x1 and x2 (values 1 and 3) must be between 0 and 1.";
+        }
+      }
     }
+  }
 
-    const numericValues = stringValues.map((v) => parseFloat(v));
+  function handleGenerate() {
+    if (isDisabled) return;
 
-    if (numericValues.some(isNaN)) {
-      error = "Please ensure all values are valid numbers.";
-      return;
-    }
-
+    const numericValues = bezierInput
+      .split(",")
+      .map((v) => parseFloat(v.trim()));
     sendToPlugin("generate-curve", { values: numericValues });
   }
 </script>
@@ -48,8 +61,11 @@
   </PluginLayout>
 
   <Footer variant="full">
-    <Button variant="primary" on:click={handleGenerate} fullWidth
-      >Create curve</Button
+    <Button
+      variant="primary"
+      on:click={handleGenerate}
+      fullWidth
+      disabled={isDisabled}>Create curve</Button
     >
   </Footer>
 </div>

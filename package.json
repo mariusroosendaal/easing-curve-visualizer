@@ -1,6 +1,6 @@
 {
   "name": "easing-curve-visualizer",
-  "version": "1.0.0",
+  "version": "1.0.1",
   "description": "Visualize and generate cubic bezier easing curves as Figma frames",
   "type": "module",
   "author": "Marius Roosendaal",
