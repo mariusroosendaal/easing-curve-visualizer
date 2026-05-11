@@ -4,7 +4,7 @@ const PADDING = 20;
 figma.showUI(__html__, {
   themeColors: true,
   width: 200,
-  height: 160,
+  height: 144,
   title: "Easing Curve Visualizer",
 });
 
