@@ -10,7 +10,7 @@
 - Disable the "Create curve" button when the input is empty or invalid
 - Remove stale change-description comments and commented-out `cornerRadius` line
 
-## [1.0.0] - 2026-05-08
+## [1.0.0]
 
 ### Changed
 
