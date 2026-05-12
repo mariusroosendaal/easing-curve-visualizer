@@ -1,3 +1,5 @@
+![Easing Curve Visualizer Cover](assets/thumbnail.png)
+
 # Easing Curve Visualizer
 
 Generate visual representations of cubic bezier easing curves.
