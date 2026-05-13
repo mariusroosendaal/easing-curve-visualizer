@@ -2,7 +2,7 @@
 
 # Easing Curve Visualizer
 
-Generate visual representations of cubic bezier easing curves.
+A Figma plugin for generating visual representations of cubic bezier easing curves.
 
 ## What it does
 
