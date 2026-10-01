@@ -18,7 +18,7 @@ Creates a frame showing the control points and curve shape for any `cubic-bezier
 2. Enter the four cubic bezier values (x1, y1, x2, y2)
 3. Click create
 
-For each screen and what its controls do, see the [user guide](https://figma-plugins.notion.site/Easing-Curve-Visualizer-3ecf29c09c9d8176a31ad6e89de94308). <!-- dev -->
+For each screen and what its controls do, see the [user guide](https://figma-plugins.notion.site/Easing-Curve-Visualizer-3ecf29c09c9d8176a31ad6e89de94308).
 
 ## Output
 
