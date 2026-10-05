@@ -4,7 +4,7 @@
 
 ### Changed
 
-- Creating a curve ends with its cubic-bezier values and the undo shortcut. A failure shows in red and says what to do, where it used to look like a regular notification
+- Creating a curve ends with its cubic-bezier values and the undo shortcut. A failure shows in red and says what to do, where it used to look like a regular notification. The bezier field's errors say what to enter
 
 ## [1.0.1] - 2026-05-09
 

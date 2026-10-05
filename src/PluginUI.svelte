@@ -18,18 +18,19 @@
     const stringValues = bezierInput.split(",").map((v) => v.trim());
     if (bezierInput.trim() !== "") {
       if (stringValues.length !== 4) {
-        error = "Please enter exactly 4 comma-separated values.";
+        error = "Enter four numbers, separated by commas.";
       } else {
         const numericValues = stringValues.map((v) => parseFloat(v));
         if (numericValues.some(isNaN)) {
-          error = "Please ensure all values are valid numbers.";
+          error = "Enter four numbers, separated by commas.";
         } else if (
           numericValues[0] < 0 ||
           numericValues[0] > 1 ||
           numericValues[2] < 0 ||
           numericValues[2] > 1
         ) {
-          error = "x1 and x2 (values 1 and 3) must be between 0 and 1.";
+          error =
+            "Set x1 and x2, the first and third numbers, between 0 and 1.";
         }
       }
     }
@@ -62,7 +63,7 @@
 
   <Footer variant="full">
     <Tooltip
-      label={isDisabled ? error || "Enter cubic bezier values to continue" : ""}
+      label={isDisabled ? error || "Enter the four numbers of the curve." : ""}
       disabled={!isDisabled}
     >
       <Button
