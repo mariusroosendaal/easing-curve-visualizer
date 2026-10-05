@@ -1,3 +1,9 @@
+import {
+  showError,
+  showSuccess,
+} from "figma-plugin-utilities/lib/figma-helpers";
+import { UNDO } from "figma-plugin-utilities/lib/format";
+
 const GRAPH_SIZE = 200;
 const PADDING = 20;
 
@@ -16,14 +22,14 @@ figma.ui.onmessage = async (msg) => {
         msg.values.length !== 4 ||
         msg.values.some((v: unknown) => !Number.isFinite(v))
       ) {
-        figma.notify("Invalid bezier values.");
+        showError("Enter four numbers for the curve.");
         return;
       }
 
       const [x1, y1, x2, y2] = msg.values as number[];
 
       if (x1 < 0 || x1 > 1 || x2 < 0 || x2 > 1) {
-        figma.notify("x1 and x2 must be between 0 and 1.");
+        showError("Set x1 and x2 between 0 and 1.");
         return;
       }
 
@@ -123,9 +129,12 @@ figma.ui.onmessage = async (msg) => {
       figma.currentPage.selection = [wrapperFrame];
       figma.viewport.scrollAndZoomIntoView([wrapperFrame]);
 
-      figma.closePlugin("Curve generated.");
+      showSuccess(`Created cubic-bezier(${x1}, ${y1}, ${x2}, ${y2}). ${UNDO}`);
+      figma.closePlugin();
     } catch {
-      figma.notify("Something went wrong. Please try again.");
+      showError(
+        "Couldn't create the curve. Press Ctrl/Cmd+Z to undo anything half-made, then try again.",
+      );
     }
   }
 };

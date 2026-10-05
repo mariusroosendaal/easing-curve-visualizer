@@ -1,5 +1,11 @@
 # Changelog
 
+## [Unreleased]
+
+### Changed
+
+- Creating a curve ends with its cubic-bezier values and the undo shortcut. A failure shows in red and says what to do, where it used to look like a regular notification
+
 ## [1.0.1] - 2026-05-09
 
 ### Fixed
