@@ -1,5 +1,5 @@
 <script>
-  import { Button, Input, Text, Tooltip } from "figma-ui3-kit-svelte";
+  import { Button, Input, Tooltip } from "figma-ui3-kit-svelte";
   import {
     PluginLayout,
     FieldGroup,
@@ -48,11 +48,14 @@
 
 <div class="plugin-container">
   <PluginLayout>
-    <FieldGroup label="Cubic bezier values" labelFor="bezier-input">
-      <Text variant="body-small" color="--figma-color-text-secondary">P1.x, P1.y, P2.x, P2.y</Text>
+    <FieldGroup
+      label="Cubic bezier values"
+      labelFor="bezier-input"
+      hint="P1.x, P1.y, P2.x, P2.y"
+    >
       <Input
         bind:value={bezierInput}
-        placeholder="e.g., 0.42, 0, 0.58, 1"
+        placeholder="0.42, 0, 0.58, 1"
         id="bezier-input"
         invalid={!!error}
         errorMessage={error}
