@@ -72,7 +72,6 @@
       <Button
         variant="primary"
         on:click={handleGenerate}
-        fullWidth
         ariaDisabled={isDisabled}>Create curve</Button
       >
     </Tooltip>
